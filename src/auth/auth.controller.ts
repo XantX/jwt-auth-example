@@ -1,10 +1,18 @@
-import { Body, Controller, Get, HttpCode, HttpStatus, Post, Request } from '@nestjs/common';
+import {
+  Body,
+  Controller,
+  Get,
+  HttpCode,
+  HttpStatus,
+  Post,
+  Request,
+} from '@nestjs/common';
 import { AuthService } from './auth.service';
 import { Public } from './constants';
 
 @Controller('auth')
 export class AuthController {
-  constructor(private authService: AuthService) { }
+  constructor(private authService: AuthService) {}
 
   @Public()
   @HttpCode(HttpStatus.OK)
@@ -14,12 +22,12 @@ export class AuthController {
   }
 
   @Get('profile')
-  getProfile(@Request() req: { user: any; }) {
+  getProfile(@Request() req: { user: any }) {
     return req.user;
   }
 
   @Get('message')
-  getProfileMessage(@Request() _req: { user: any; }) {
-    return "menssage";
+  getProfileMessage(@Request() _req: { user: any }) {
+    return 'menssage';
   }
 }
